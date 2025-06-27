@@ -332,3 +332,5 @@ document.getElementById('btn-rotar').addEventListener('click', () => {
     girarPieza();
     actualizarCanvas();
 });
+
+// Escalado de canvas

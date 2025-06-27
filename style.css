@@ -2,25 +2,45 @@
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
     font-style: normal;
-
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.contenedor-canvas {
-    width: 100vw;
-    height: 100vh;
+body {
+    min-height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: linear-gradient(135deg, #1b1b1b 25%, #2c2c2c 25%, #2c2c2c 50%, #1b1b1b 50%, #1b1b1b 75%, #2c2c2c 75%, #2c2c2c);
+    background-size: 40px 40px;
+    animation: moveBg 4s linear infinite;
+    color: white;
+}
 
-    h1 {
-        font-size: 1.5rem;
+@keyframes moveBg {
+    0% {
+        background-position: 0 0;
     }
 
+    100% {
+        background-position: 40px 40px;
+    }
+}
+
+.contenedor-canvas {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1,
     p {
-        font-size: 1rem;
+        text-align: center;
+        font-size: clamp(0.8rem, 2.5vw, 1.5rem);
     }
 }
 
@@ -28,6 +48,14 @@
     background-color: black;
     border: solid 5px gold;
     border-radius: 3px;
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    /* Tamaño máximo deseado */
+    aspect-ratio: 2 / 3;
+    /* Relación aproximada del tablero */
+    image-rendering: pixelated;
+    /* Mantiene estilo retro */
 }
 
 .pointer {
@@ -109,9 +137,18 @@
 @media (max-width: 768px) {
     .controles-moviles {
         display: flex;
+        justify-content: space-between;
     }
 }
 
-#puntos{
+#puntos {
     margin: 1rem 0;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
 }

@@ -17,11 +17,15 @@
 </head>
 
 <body>
+    <div class="container-fluid">
 
-    <div class="contenedor-canvas">
-        <h1 class="pointer" id="titulo">Start Game</h1>
-        <canvas id="tablero"></canvas>
-        <!-- Controles móviles -->
+        <div class="contenedor-canvas">
+            <h1 class="pointer" id="titulo">Start Game</h1>
+            <canvas id="tablero"></canvas>
+            <!-- Controles móviles -->
+
+            <p id="puntos">Puntos: 0</p>
+        </div>
         <div class="controles-moviles">
             <button id="btn-izquierda">◀️</button>
             <div class="controles-centro">
@@ -31,7 +35,6 @@
             <button id="btn-derecha">▶️</button>
         </div>
 
-        <p id="puntos">Puntos: 0</p>
     </div>
 
     <script src="script.js"></script>
