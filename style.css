@@ -33,3 +33,85 @@
 .pointer {
     cursor: pointer;
 }
+
+/* H1 como botón al inicio */
+#titulo.pointer {
+    margin: 1rem 0;
+    background-color: #FFD700;
+    color: black;
+    padding: 10px 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    animation: pulse 1s infinite;
+    box-shadow: 0 0 10px 2px #FFD700;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Eliminar animación y estilo una vez iniciado */
+#titulo:not(.pointer) {
+    margin: 1rem 0;
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    animation: none;
+    color: black;
+}
+
+/* Animación */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px 2px #FFD700;
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px 4px #FFA500;
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px 2px #FFD700;
+    }
+}
+
+.controles-moviles {
+    display: none;
+    margin-top: 10px;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.controles-moviles button {
+    font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #444;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.controles-centro {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Mostrar solo en pantallas pequeñas */
+@media (max-width: 768px) {
+    .controles-moviles {
+        display: flex;
+    }
+}
+
+#puntos{
+    margin: 1rem 0;
+}

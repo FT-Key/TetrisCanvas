@@ -54,42 +54,42 @@ let xPos = (numCuadrosAncho / 2) - 2;
 let yPos = 0;
 
 // Contador de puntos
- 
+
 let puntaje = 0;
 
 // Ajustar la función iniciarJuego para que reinicie correctamente
 function iniciarJuego() {
     // Reiniciar el estado del tablero
     tablero = Array.from({ length: numCuadrosAlto }, () => Array(numCuadrosAncho).fill(0));
-    
+
     // Reiniciar la posición de la pieza
     xPos = (numCuadrosAncho / 2) - 2;
     yPos = 0;
-    
+
     // Seleccionar una nueva pieza aleatoria
     piezaActual = obtenerPiezaAleatoria();
     colorPieza = obtenerColorAleatorio();
-    
+
     // Reiniciar el puntaje
     puntaje = 0;
     puntos.textContent = `Puntos: ${puntaje}`;
-    
+
     // Marcar que el juego no ha terminado
     juegoTerminado = false;
-    
+
     // Iniciar audio
     audio.currentTime = 0;
     audio.loop = true;
     audio.volume = 0.2;
     audio.play();
-    
+
     // Iniciar la animación
     detenerAnimacion();
     animar();
-    
+
     // Actualizar el canvas
     actualizarCanvas();
-    
+
     titulo.textContent = `Tetris`;
     titulo.classList.remove('pointer');
 
@@ -308,3 +308,27 @@ function detenerAnimacion() {
     clearTimeout(timeoutId); // Cancela la animación actual
     //console.log("Animación detenida");
 }
+
+// Controles móviles
+document.getElementById('btn-izquierda').addEventListener('click', () => {
+    if (xPos > 0 && !colisiona(xPos - 1, yPos)) {
+        xPos--;
+        actualizarCanvas();
+    }
+});
+
+document.getElementById('btn-derecha').addEventListener('click', () => {
+    if (xPos < numCuadrosAncho - piezaActual[0].length && !colisiona(xPos + 1, yPos)) {
+        xPos++;
+        actualizarCanvas();
+    }
+});
+
+document.getElementById('btn-abajo').addEventListener('click', () => {
+    moverPiezaHaciaAbajo();
+});
+
+document.getElementById('btn-rotar').addEventListener('click', () => {
+    girarPieza();
+    actualizarCanvas();
+});
