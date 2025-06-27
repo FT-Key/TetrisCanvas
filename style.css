@@ -1,0 +1,35 @@
+* {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor-canvas {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+#tablero {
+    background-color: black;
+    border: solid 5px gold;
+    border-radius: 3px;
+}
+
+.pointer {
+    cursor: pointer;
+}
